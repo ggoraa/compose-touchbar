@@ -10,7 +10,6 @@ import dev.ggoraa.compose.touchbar.GenericActionTarget
 import dev.ggoraa.compose.touchbar.TouchBarScope
 import dev.ggoraa.compose.touchbar.TouchBarViewNode
 import dev.ggoraa.compose.touchbar.image.TouchBarImage
-import dev.ggoraa.compose.touchbar.image.TouchBarImagePosition
 import dev.ggoraa.compose.touchbar.toNSColor
 
 @Composable
@@ -20,10 +19,7 @@ fun TouchBarScope.ButtonItem(
 	alternateTitle: String = "",
 	image: TouchBarImage? = null,
 	alternateImage: TouchBarImage? = null,
-	imagePosition: TouchBarImagePosition? = null,
 	bezelColor: Color? = null,
-	/** A Boolean value that defines whether a button’s action has a destructive effect. */
-	hasDestructiveAction: Boolean? = null,
 	onClick: () -> Unit,
 ) {
 	val updatedOnClick by rememberUpdatedState(onClick)
@@ -63,16 +59,6 @@ fun TouchBarScope.ButtonItem(
 			set(bezelColor) {
 				it?.let { color ->
 					viewImpl!!["bezelColor"] = color.toNSColor()
-				}
-			}
-			set(hasDestructiveAction) {
-				it?.let {
-					viewImpl!!.sendBoolean("hasDestructiveAction", it)
-				}
-			}
-			set(imagePosition) {
-				it?.let {
-					viewImpl!!.sendInt("imagePosition", it.ordinal)
 				}
 			}
 		}
