@@ -8,9 +8,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.colorspace.ColorSpaces
-import ca.weblite.objc.Client
-import ca.weblite.objc.Proxy
 import ca.weblite.objc.RuntimeUtils.sel
 
 sealed interface ColorPickerButtonType {
