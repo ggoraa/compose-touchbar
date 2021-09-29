@@ -9,11 +9,11 @@ import ca.weblite.objc.annotations.Msg
  */
 internal abstract class GenericActionTarget : NSObject("NSObject") {
 
-  @Msg(selector = "triggerNullary", signature = "v@:")
-  open fun triggerNullary() {
-  }
+	@Msg(selector = "triggerNullary", signature = "v@:")
+	open fun triggerNullary() {
+	}
 
-  // @Msg(selector = "triggerNullary:", signature = "v@:d?")
-  // open fun triggerNullary() {
-  // }
+	// @Msg(selector = "triggerNullary:", signature = "v@:d?")
+	// open fun triggerNullary() {
+	// }
 }

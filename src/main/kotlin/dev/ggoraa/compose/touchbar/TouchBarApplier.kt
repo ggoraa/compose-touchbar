@@ -8,7 +8,6 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCompositionContext
 import androidx.compose.runtime.rememberUpdatedState
-import ca.weblite.objc.Client
 import ca.weblite.objc.Proxy
 
 internal data class TouchBarItemNode(
