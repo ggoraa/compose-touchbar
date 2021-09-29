@@ -1,11 +1,11 @@
 @file:Suppress("FunctionName")
 
-package dev.ggoraa.compose.touchbar
+package dev.ggoraa.compose.touchbar.image
 
 import ca.weblite.objc.Client
 import ca.weblite.objc.Proxy
 
-fun TouchBarSystemImage(name: String, accessibilityDescription: String): TouchBarImage  {
+fun TouchBarSystemImage(name: String, accessibilityDescription: String): TouchBarImage {
   val client = Client.getInstance()
   return TouchBarImage(client.sendProxy("NSImage", "imageWithSystemSymbolName:accessibilityDescription:", name, accessibilityDescription))
 }

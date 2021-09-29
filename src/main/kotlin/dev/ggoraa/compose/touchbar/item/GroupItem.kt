@@ -1,4 +1,4 @@
-package dev.ggoraa.compose.touchbar
+package dev.ggoraa.compose.touchbar.item
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -6,6 +6,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import ca.weblite.objc.Proxy
+import dev.ggoraa.compose.touchbar.TouchBarComposition
+import dev.ggoraa.compose.touchbar.TouchBarItemNode
+import dev.ggoraa.compose.touchbar.TouchBarScope
+import dev.ggoraa.compose.touchbar.createNSTouchBar
 
 @Composable fun TouchBarScope.GroupItem(
   content: @Composable TouchBarScope.() -> Unit

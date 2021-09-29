@@ -1,21 +1,29 @@
 @file:Suppress("FunctionName")
 
-package dev.ggoraa.compose.touchbar
+package dev.ggoraa.compose.touchbar.item
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.graphics.Color
+import dev.ggoraa.compose.touchbar.GenericActionTarget
+import dev.ggoraa.compose.touchbar.TouchBarScope
+import dev.ggoraa.compose.touchbar.TouchBarViewNode
+import dev.ggoraa.compose.touchbar.image.TouchBarImage
+import dev.ggoraa.compose.touchbar.image.TouchBarImagePosition
+import dev.ggoraa.compose.touchbar.toNSColor
 
-@Composable fun TouchBarScope.ButtonItem(
+@Composable
+fun TouchBarScope.ButtonItem(
 	/** The title displayed on the button when it’s in an off state. */
 	title: String,
 	alternateTitle: String = "",
 	image: TouchBarImage? = null,
 	alternateImage: TouchBarImage? = null,
+	imagePosition: TouchBarImagePosition? = null,
 	bezelColor: Color? = null,
 	/** A Boolean value that defines whether a button’s action has a destructive effect. */
-	hasDestructiveAction: Boolean = false,
+	hasDestructiveAction: Boolean? = null,
 	onClick: () -> Unit,
 ) {
 	val updatedOnClick by rememberUpdatedState(onClick)
@@ -43,12 +51,12 @@ import androidx.compose.ui.graphics.Color
 				viewImpl!!["alternateTitle"] = it
 			}
 			set(image) {
-				if (it != null) {
+				it?.let {
 					viewImpl!!["image"] = it.nsImage
 				}
 			}
 			set(alternateImage) {
-				if (it != null) {
+				it?.let {
 					viewImpl!!["alternateImage"] = it.nsImage
 				}
 			}
@@ -58,7 +66,14 @@ import androidx.compose.ui.graphics.Color
 				}
 			}
 			set(hasDestructiveAction) {
-				viewImpl!!["hasDestructiveAction"] = it
+				it?.let {
+					viewImpl!!.sendBoolean("hasDestructiveAction", it)
+				}
+			}
+			set(imagePosition) {
+				it?.let {
+					viewImpl!!.sendInt("imagePosition", it.ordinal)
+				}
 			}
 		}
 	)

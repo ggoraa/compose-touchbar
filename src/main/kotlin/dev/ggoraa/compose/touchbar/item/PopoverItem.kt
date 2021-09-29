@@ -1,4 +1,6 @@
-package dev.ggoraa.compose.touchbar
+@file:Suppress("FunctionName")
+
+package dev.ggoraa.compose.touchbar.item
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
@@ -10,13 +12,17 @@ import ca.weblite.objc.NSObject
 import ca.weblite.objc.Proxy
 import ca.weblite.objc.RuntimeUtils.sel
 import ca.weblite.objc.annotations.Msg
+import dev.ggoraa.compose.touchbar.*
+import dev.ggoraa.compose.touchbar.TouchBarComposition
+import dev.ggoraa.compose.touchbar.TouchBarItemNode
+import dev.ggoraa.compose.touchbar.createNSTouchBar
 
 @Composable fun TouchBarScope.PopoverItem(
-    collapsedLabel: String,
-    popoverController: PopoverController = remember { PopoverController() },
-    showCloseButton: Boolean = true,
-    showOnPressAndHold: Boolean = true,
-    content: @Composable TouchBarScope.() -> Unit,
+  collapsedLabel: String,
+  popoverController: PopoverController = remember { PopoverController() },
+  showCloseButton: Boolean = true,
+  showOnPressAndHold: Boolean = true,
+  content: @Composable TouchBarScope.() -> Unit,
 ) {
   PopoverItem(
     collapsedLabel = collapsedLabel,
