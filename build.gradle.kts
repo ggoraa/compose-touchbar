@@ -5,10 +5,11 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm") version "1.5.21"
     id("org.jetbrains.compose") version "1.0.0-alpha1"
+    `maven-publish`
 }
 
-group = "com.zachklipp"
-version = "1.0"
+group = "dev.ggoraa.compose"
+version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -17,15 +18,26 @@ repositories {
     mavenLocal()
 }
 
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "dev.ggoraa.compose"
+            artifactId = "touchbar"
+            version = "1.0-SNAPSHOT"
+
+            from(components["kotlin"])
+        }
+    }
+}
+
 dependencies {
     implementation(compose.desktop.currentOs)
-
     // Not on a public repository, build manually from
     // https://github.com/shannah/Java-Objective-C-Bridge.
     implementation("ca.weblite:java-objc-bridge:1.1-SNAPSHOT")
 }
 
-tasks.withType<KotlinCompile>() {
+tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "11"
 }
 

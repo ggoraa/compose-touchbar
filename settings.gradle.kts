@@ -5,5 +5,5 @@ pluginManagement {
     }
     
 }
-rootProject.name = "ComposeTouchbar"
+rootProject.name = "touchbar"
 
