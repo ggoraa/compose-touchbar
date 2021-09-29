@@ -1,3 +1,5 @@
+package dev.ggoraa.compose.touchbar
+
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
@@ -10,11 +12,11 @@ import ca.weblite.objc.RuntimeUtils.sel
 import ca.weblite.objc.annotations.Msg
 
 @Composable fun TouchBarScope.PopoverItem(
-  collapsedLabel: String,
-  popoverController: PopoverController = remember { PopoverController() },
-  showCloseButton: Boolean = true,
-  showOnPressAndHold: Boolean = true,
-  content: @Composable TouchBarScope.() -> Unit,
+    collapsedLabel: String,
+    popoverController: PopoverController = remember { PopoverController() },
+    showCloseButton: Boolean = true,
+    showOnPressAndHold: Boolean = true,
+    content: @Composable TouchBarScope.() -> Unit,
 ) {
   PopoverItem(
     collapsedLabel = collapsedLabel,
@@ -26,11 +28,11 @@ import ca.weblite.objc.annotations.Msg
 }
 
 @Composable fun TouchBarScope.PopoverItem(
-  collapsedLabel: String,
-  popoverController: PopoverController = remember { PopoverController() },
-  showCloseButton: Boolean = true,
-  popoverContent: @Composable (TouchBarScope.() -> Unit)?,
-  pressAndHoldContent: @Composable (TouchBarScope.() -> Unit)?,
+    collapsedLabel: String,
+    popoverController: PopoverController = remember { PopoverController() },
+    showCloseButton: Boolean = true,
+    popoverContent: @Composable (TouchBarScope.() -> Unit)?,
+    pressAndHoldContent: @Composable (TouchBarScope.() -> Unit)?,
 ) {
   var popoverItem: Proxy by remember { mutableStateOf(Proxy()) }
 

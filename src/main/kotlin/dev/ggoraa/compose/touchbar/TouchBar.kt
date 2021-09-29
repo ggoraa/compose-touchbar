@@ -1,3 +1,5 @@
+package dev.ggoraa.compose.touchbar
+
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ComposeNode
 import androidx.compose.runtime.DisallowComposableCalls
@@ -40,8 +42,8 @@ class TouchBarScope internal constructor(internal val client: Client)
 }
 
 @Composable internal inline fun TouchBarItemNode(
-  noinline factory: (identifier: String) -> TouchBarItemNode,
-  update: @DisallowComposableCalls (Updater<TouchBarItemNode>.() -> Unit)
+    noinline factory: (identifier: String) -> TouchBarItemNode,
+    update: @DisallowComposableCalls (Updater<TouchBarItemNode>.() -> Unit)
 ) {
   // currentCompositeKeyHash is returning the same key for all invocations of a given function
   // within the same lambda. I didn't think that was how it was supposd to work – wouldn't that

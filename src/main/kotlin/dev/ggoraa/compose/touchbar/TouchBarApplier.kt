@@ -1,3 +1,5 @@
+package dev.ggoraa.compose.touchbar
+
 import androidx.compose.runtime.AbstractApplier
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Composition

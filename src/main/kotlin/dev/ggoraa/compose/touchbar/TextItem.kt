@@ -1,3 +1,5 @@
+package dev.ggoraa.compose.touchbar
+
 import androidx.compose.runtime.Composable
 import ca.weblite.objc.RuntimeUtils.str
 

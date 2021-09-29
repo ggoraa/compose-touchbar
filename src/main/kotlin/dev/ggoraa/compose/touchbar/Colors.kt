@@ -1,3 +1,5 @@
+package dev.ggoraa.compose.touchbar
+
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.colorspace.ColorSpaces
 import ca.weblite.objc.Client

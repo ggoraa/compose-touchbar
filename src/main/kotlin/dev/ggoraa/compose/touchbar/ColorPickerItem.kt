@@ -1,6 +1,8 @@
-import ColorPickerButtonType.Standard
-import ColorPickerButtonType.Stroke
-import ColorPickerButtonType.Text
+package dev.ggoraa.compose.touchbar
+
+import dev.ggoraa.compose.touchbar.ColorPickerButtonType.Standard
+import dev.ggoraa.compose.touchbar.ColorPickerButtonType.Stroke
+import dev.ggoraa.compose.touchbar.ColorPickerButtonType.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key

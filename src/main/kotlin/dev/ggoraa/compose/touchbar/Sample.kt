@@ -1,4 +1,6 @@
-import ColorPickerButtonType.Standard
+package dev.ggoraa.compose.touchbar
+
+import dev.ggoraa.compose.touchbar.ColorPickerButtonType.Standard
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column

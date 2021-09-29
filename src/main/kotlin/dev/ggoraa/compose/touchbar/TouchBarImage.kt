@@ -1,3 +1,5 @@
+package dev.ggoraa.compose.touchbar
+
 import ca.weblite.objc.Proxy
 
 class TouchBarImage internal constructor(internal val nsImage: Proxy) {

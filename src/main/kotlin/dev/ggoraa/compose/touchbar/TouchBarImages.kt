@@ -1,4 +1,4 @@
-// import ca.weblite.objc.Client
+package dev.ggoraa.compose.touchbar// import ca.weblite.objc.Client
 //
 // object TouchBarImages {
 //   val TouchBarAddDetail by lazy { loadImageNamed("NSImageNameTouchBarAddDetailTemplate") }
@@ -79,9 +79,9 @@
 //   val TouchBarVolumeDown by lazy { loadImageNamed("NSImageNameTouchBarVolumeDownTemplate") }
 //
 //   private val client = Client.getInstance()
-//   private fun loadImageNamed(name: String): TouchBarImage {
+//   private fun loadImageNamed(name: String): dev.ggoraa.compose.touchbar.TouchBarImage {
 //     val imageName = client.sendProxy("NSTouchBarItem", name)
 //     return client.sendProxy("NSImage", "imageNamed:", imageName)
-//       .let(::TouchBarImage)
+//       .let(::dev.ggoraa.compose.touchbar.TouchBarImage)
 //   }
 // }

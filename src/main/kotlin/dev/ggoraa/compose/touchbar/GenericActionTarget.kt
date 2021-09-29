@@ -1,3 +1,5 @@
+package dev.ggoraa.compose.touchbar
+
 import ca.weblite.objc.NSObject
 import ca.weblite.objc.annotations.Msg
 

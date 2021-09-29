@@ -1,5 +1,7 @@
 @file:Suppress("JAVA_MODULE_DOES_NOT_EXPORT_PACKAGE")
 
+package dev.ggoraa.compose.touchbar
+
 import ca.weblite.objc.Client
 import ca.weblite.objc.NSObject
 import ca.weblite.objc.Proxy
