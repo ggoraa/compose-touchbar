@@ -8,6 +8,8 @@ import ca.weblite.objc.Proxy
 import ca.weblite.objc.RuntimeUtils.cls
 import ca.weblite.objc.annotations.Msg
 import com.sun.jna.Pointer
+import dev.ggoraa.kappkit.extensions.toNsString
+import dev.ggoraa.kappkit.foundation.collections.NSMutableArray
 import sun.lwawt.LWWindowPeer
 import sun.lwawt.macosx.CPlatformWindow
 import java.awt.Component
@@ -59,15 +61,13 @@ internal fun Client.createNSTouchBar(spec: KTouchBarSpec): Proxy {
 	// See https://github.com/Thizzer/jtouchbar/blob/e55d6e1f3e8b9e84bb668371de2eb92a5117ed1c/src/main/objective-c%2B%2B/Bridged/JavaTouchBar.mm#L129
 	val nsTouchBar = sendProxy("NSTouchBar", "alloc")
 		.sendProxy("init")
-	val defaultIdentifiers = sendProxy("NSMutableArray", "alloc")
-		.sendProxy("init")
-	// TODO customizable
+	val defaultIdentifiers = NSMutableArray()
 
-	spec.defaultIdentifiers.forEach { identifier ->
-		defaultIdentifiers.send("addObject:", identifier)
+	spec.defaultIdentifiers.forEach {
+		defaultIdentifiers.addObject(it.toNsString())
 	}
 
-	nsTouchBar["defaultItemIdentifiers"] = defaultIdentifiers
+	nsTouchBar["defaultItemIdentifiers"] = defaultIdentifiers.objCInstance
 	nsTouchBar["delegate"] = TouchBarDelegate(spec.itemProvider)
 
 	return nsTouchBar
