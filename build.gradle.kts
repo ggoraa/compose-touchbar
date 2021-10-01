@@ -35,6 +35,10 @@ dependencies {
     // Not on a public repository, build manually from
     // https://github.com/shannah/Java-Objective-C-Bridge.
     implementation("ca.weblite:java-objc-bridge:1.1-SNAPSHOT")
+
+    // Local repo, need to build manually from
+    // https://github.com/ggoraa/kappkit
+    implementation("dev.ggoraa.kappkit:kappkit:1.0-SNAPSHOT")
 }
 
 tasks.withType<KotlinCompile> {
