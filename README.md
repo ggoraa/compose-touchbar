@@ -4,6 +4,10 @@ Proof-of-concept of a [Compose for Desktop](https://www.jetbrains.com/lp/compose
 
 Base made by @zach-klippenstein, (soon) turned to a real usable thing by @ggoraa
 
+This project currently waits when [kAppKit](https://github.com/ggoraa/kappkit)
+project will be implemented in a way that it can be used for Touch Bar manipulation
+(with classes which are used in Touch Bar)
+
 ## Usage
 
 ```kotlin
