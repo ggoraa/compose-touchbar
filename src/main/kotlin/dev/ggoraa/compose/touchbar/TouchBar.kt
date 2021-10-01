@@ -1,3 +1,5 @@
+@file:Suppress("unused", "FunctionName")
+
 package dev.ggoraa.compose.touchbar
 
 import androidx.compose.runtime.Composable

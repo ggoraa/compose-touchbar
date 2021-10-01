@@ -1,14 +1,15 @@
-package dev.ggoraa.compose.touchbar
+package dev.ggoraa.compose.touchbar.item
 
-import dev.ggoraa.compose.touchbar.ColorPickerButtonType.Standard
-import dev.ggoraa.compose.touchbar.ColorPickerButtonType.Stroke
-import dev.ggoraa.compose.touchbar.ColorPickerButtonType.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.graphics.Color
 import ca.weblite.objc.RuntimeUtils.sel
+import dev.ggoraa.compose.touchbar.*
+import dev.ggoraa.compose.touchbar.GenericActionTarget
+import dev.ggoraa.compose.touchbar.TouchBarItemNode
+import dev.ggoraa.compose.touchbar.toNSColor
 
 sealed interface ColorPickerButtonType {
   object Standard : ColorPickerButtonType
@@ -19,7 +20,7 @@ sealed interface ColorPickerButtonType {
 @Composable fun TouchBarScope.ColorPickerItem(
   color: Color,
   onColorChange: (Color) -> Unit,
-  buttonType: ColorPickerButtonType = Standard,
+  buttonType: ColorPickerButtonType = ColorPickerButtonType.Standard,
 ) {
   val updatedOnColorChange by rememberUpdatedState(onColorChange)
 
@@ -29,9 +30,9 @@ sealed interface ColorPickerButtonType {
     TouchBarItemNode(
       factory = { id ->
         val constructor = when (buttonType) {
-          Standard -> "colorPickerWithIdentifier:"
-          Stroke -> "strokeColorPickerWithIdentifier:"
-          Text -> "textColorPickerWithIdentifier:"
+          ColorPickerButtonType.Standard -> "colorPickerWithIdentifier:"
+          ColorPickerButtonType.Stroke -> "strokeColorPickerWithIdentifier:"
+          ColorPickerButtonType.Text -> "textColorPickerWithIdentifier:"
         }
         val item = client.sendProxy("NSColorPickerTouchBarItem", constructor, id)
 

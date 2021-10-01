@@ -1,3 +1,5 @@
+@file:Suppress("FunctionName")
+
 package dev.ggoraa.compose.touchbar
 
 import androidx.compose.runtime.AbstractApplier

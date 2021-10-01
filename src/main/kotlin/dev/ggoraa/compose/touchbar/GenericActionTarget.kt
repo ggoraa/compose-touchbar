@@ -11,6 +11,7 @@ internal abstract class GenericActionTarget : NSObject("NSObject") {
 
 	@Msg(selector = "triggerNullary", signature = "v@:")
 	open fun triggerNullary() {
+
 	}
 
 	// @Msg(selector = "triggerNullary:", signature = "v@:d?")
